@@ -8,4 +8,8 @@ public class Tulip extends Flower {
     public Tulip(ColorTone color, LocalDate harvestDate, double stemLengthCm, BigDecimal price) {
         super("Tulip", color, harvestDate, stemLengthCm, price);
     }
+    @Override
+    public Flower copy() {
+        return new Tulip(getColor(), getHarvestDate(), getStemLengthCm(), getPrice());
+    }
 }
