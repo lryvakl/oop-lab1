@@ -23,14 +23,15 @@ public class ConsoleApplication {
         seed();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("\n1) Show bouquet  2) Price  3) Sort by freshness  4) Find by stem  0) Exit");
+            System.out.println("\n1) Show bouquet  2) Price  3) Sort by freshness (asc) 4) Sort by freshness (desc)  5) Find by stem  0) Exit");
             System.out.print("Choice: ");
             String cmd = scanner.nextLine().trim();
             switch (cmd) {
                 case "1" -> show();
                 case "2" -> System.out.println("Total: " + service.calculateTotalPrice());
                 case "3" -> { service.sortByFreshnessAscending(); show(); }
-                case "4" -> {
+                case "4" -> { service.sortByFreshnessDescending(); show(); }
+                case "5" -> {
                     try {
                         System.out.print("min: "); double min = Double.parseDouble(scanner.nextLine());
                         System.out.print("max: "); double max = Double.parseDouble(scanner.nextLine());

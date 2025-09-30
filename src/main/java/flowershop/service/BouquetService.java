@@ -34,6 +34,10 @@ public class BouquetService {
         flowers.sort(Comparator.comparingInt(Flower::freshnessDays));
     }
 
+    public void sortByFreshnessDescending() {
+        flowers.sort(Comparator.comparingInt(Flower::freshnessDays).reversed());
+    }
+
     public List<Flower> findByStemRange(double min, double max) {
         return flowers.stream()
                 .filter(f -> f.getStemLengthCm() >= min && f.getStemLengthCm() <= max)

@@ -106,7 +106,6 @@ class LilyTest {
         ColorTone pinkColor = new PinkTone();
         LocalDate harvestDate = LocalDate.now().minusDays(1);
 
-        // Тестуємо мінімальну та максимальну кількість пелюсток
         Lily lilyMin = new Lily(pinkColor, harvestDate, 50.0, new BigDecimal("45.00"), 1);
         Lily lilyMax = new Lily(pinkColor, harvestDate, 70.0, new BigDecimal("75.00"), 12);
 

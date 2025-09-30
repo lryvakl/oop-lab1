@@ -53,7 +53,6 @@ class RoseTest {
         assertEquals(roseWithThorns.getPrice(), copy.getPrice());
         assertEquals(roseWithThorns.hasThorns(), copy.hasThorns());
 
-        // Перевіряємо, що це різні об'єкти
         assertNotSame(roseWithThorns, copy);
     }
 
