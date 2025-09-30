@@ -69,10 +69,19 @@ class BouquetServiceIntegrationTest {
         bouquetService.sortByFreshnessAscending();
 
         List<Flower> flowers = bouquetService.getFlowers();
-        assertEquals(rose, flowers.get(0));
-        assertEquals(tulip, flowers.get(1));
-    }
 
+        Flower firstFlower = flowers.get(0);
+        assertEquals(rose.getColor(), firstFlower.getColor());
+        assertEquals(rose.getStemLengthCm(), firstFlower.getStemLengthCm());
+        assertEquals(rose.getPrice(), firstFlower.getPrice());
+        assertEquals(rose.getHarvestDate(), firstFlower.getHarvestDate());
+
+        Flower secondFlower = flowers.get(1);
+        assertEquals(tulip.getColor(), secondFlower.getColor());
+        assertEquals(tulip.getStemLengthCm(), secondFlower.getStemLengthCm());
+        assertEquals(tulip.getPrice(), secondFlower.getPrice());
+        assertEquals(tulip.getHarvestDate(), secondFlower.getHarvestDate());
+    }
     @Test
     void testIntegrationFindByStemRange() {
         bouquetService.addFlower(rose, 2);

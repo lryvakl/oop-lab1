@@ -1,0 +1,9 @@
+# Формат: тип_квітки,колір,дні_свіжості,довжина_стебла,ціна,додатковий_параметр(hasThorns,bulb_type,petal_count),кількість
+Rose,Red,1,50.0,40.0,true,3
+Rose,Pink,4,50.0,35.0,false,1
+Tulip,Yellow,3,35.0,30.0,large,3
+Lily,Pink,2,60.0,90.0,6,3
+
+# Аксесуари: тип,матеріал,ціна,довжина/візерунок
+Ribbon,satin,5.0,1.0
+WrappingPaper,cellophane,30.0,floral
