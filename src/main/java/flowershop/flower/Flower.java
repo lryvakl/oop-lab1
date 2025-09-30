@@ -1,6 +1,6 @@
-package flowershop.model.flower;
+package flowershop.flower;
 
-import flowershop.model.color.ColorTone;
+import flowershop.color.ColorTone;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -11,6 +11,7 @@ public abstract class Flower {
     private final LocalDate harvestDate;
     private final double stemLengthCm;
     private final BigDecimal price;
+
     public abstract Flower copy();
 
     protected Flower(String name, ColorTone color, LocalDate harvestDate, double stemLengthCm, BigDecimal price) {
@@ -21,6 +22,7 @@ public abstract class Flower {
         this.price = price;
     }
 
+    public String getName() { return name; }
     public ColorTone getColor() { return color; }
     public LocalDate getHarvestDate() { return harvestDate; }
     public double getStemLengthCm() { return stemLengthCm; }

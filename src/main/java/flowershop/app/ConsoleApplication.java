@@ -1,12 +1,12 @@
 package flowershop.app;
-import flowershop.model.accessory.Ribbon;
-import flowershop.model.accessory.WrappingPaper;
-import flowershop.model.color.PinkTone;
-import flowershop.model.color.RedTone;
-import flowershop.model.color.YellowTone;
-import flowershop.model.flower.Lily;
-import flowershop.model.flower.Rose;
-import flowershop.model.flower.Tulip;
+import flowershop.accessory.Ribbon;
+import flowershop.accessory.WrappingPaper;
+import flowershop.color.PinkTone;
+import flowershop.color.RedTone;
+import flowershop.color.YellowTone;
+import flowershop.flower.Lily;
+import flowershop.flower.Rose;
+import flowershop.flower.Tulip;
 import flowershop.service.BouquetService;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -31,10 +31,14 @@ public class ConsoleApplication {
                 case "2" -> System.out.println("Total: " + service.calculateTotalPrice());
                 case "3" -> { service.sortByFreshnessAscending(); show(); }
                 case "4" -> {
-                    System.out.print("min: "); double min = Double.parseDouble(scanner.nextLine());
-                    System.out.print("max: "); double max = Double.parseDouble(scanner.nextLine());
-                    List<?> found = service.findByStemRange(min, max);
-                    found.forEach(System.out::println);
+                    try {
+                        System.out.print("min: "); double min = Double.parseDouble(scanner.nextLine());
+                        System.out.print("max: "); double max = Double.parseDouble(scanner.nextLine());
+                        List<?> found = service.findByStemRange(min, max);
+                        found.forEach(System.out::println);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number format");
+                    }
                 }
                 case "0" -> { System.out.println("Bye"); return; }
                 default -> System.out.println("Unknown");
@@ -43,11 +47,11 @@ public class ConsoleApplication {
     }
 
     private void seed() {
-        service.addFlower(new Rose(new RedTone(), LocalDate.now().minusDays(1), 50.0, BigDecimal.valueOf(40)),3);
-        service.addFlower(new Tulip(new YellowTone(), LocalDate.now().minusDays(3), 35.0, BigDecimal.valueOf(30)),3);
-        service.addFlower(new Lily(new PinkTone(), LocalDate.now().minusDays(2), 60.0, BigDecimal.valueOf(90)),3);
-        service.addAccessory(new Ribbon());
-        service.addAccessory(new WrappingPaper());
+        service.addFlower(new Rose(new RedTone(), LocalDate.now().minusDays(1), 50.0, BigDecimal.valueOf(40), true), 3);
+        service.addFlower(new Tulip(new YellowTone(), LocalDate.now().minusDays(3), 35.0, BigDecimal.valueOf(30), "large"), 3);
+        service.addFlower(new Lily(new PinkTone(), LocalDate.now().minusDays(2), 60.0, BigDecimal.valueOf(90), 6), 3);
+        service.addAccessory(new Ribbon("satin", BigDecimal.valueOf(15.0), 2.5));
+        service.addAccessory(new WrappingPaper("cellophane", BigDecimal.valueOf(10.0), "floral"));
     }
 
     private void show() {
