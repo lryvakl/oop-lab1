@@ -1,4 +1,4 @@
-package flowershop.model.accessory;
+package flowershop.accessory;
 import java.math.BigDecimal;
 
 public abstract class Accessory {
