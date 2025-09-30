@@ -1,8 +1,6 @@
 package flowershop.service;
-
 import flowershop.model.accessory.Accessory;
 import flowershop.model.flower.Flower;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,7 +11,13 @@ public class BouquetService {
     private final List<Flower> flowers = new ArrayList<>();
     private final List<Accessory> accessories = new ArrayList<>();
 
-    public void addFlower(Flower flower) { flowers.add(flower); }
+
+    public void addFlower(Flower flower, int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            flowers.add(flower.copy());
+        }
+    }
+
     public void addAccessory(Accessory accessory) { accessories.add(accessory); }
 
     public List<Flower> getFlowers() { return new ArrayList<>(flowers); }
@@ -34,10 +38,5 @@ public class BouquetService {
         return flowers.stream()
                 .filter(f -> f.getStemLengthCm() >= min && f.getStemLengthCm() <= max)
                 .collect(Collectors.toList());
-    }
-
-    public void clear() {
-        flowers.clear();
-        accessories.clear();
     }
 }
