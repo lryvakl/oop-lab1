@@ -11,6 +11,7 @@ public abstract class Flower {
     private final LocalDate harvestDate;
     private final double stemLengthCm;
     private final BigDecimal price;
+    public abstract Flower copy();
 
     protected Flower(String name, ColorTone color, LocalDate harvestDate, double stemLengthCm, BigDecimal price) {
         this.name = name;
@@ -20,7 +21,6 @@ public abstract class Flower {
         this.price = price;
     }
 
-    public String getName() { return name; }
     public ColorTone getColor() { return color; }
     public LocalDate getHarvestDate() { return harvestDate; }
     public double getStemLengthCm() { return stemLengthCm; }
@@ -32,7 +32,7 @@ public abstract class Flower {
 
     @Override
     public String toString() {
-        return String.format("%s [%s], stem=%.1fcm, price=%s, harvested=%s, freshness=%dd",
-                name, color, stemLengthCm, price, harvestDate, freshnessDays());
+        return String.format("%s [%s], stem=%.1fcm, price=%s, freshness=%dd",
+                name, color, stemLengthCm, price, freshnessDays());
     }
 }
