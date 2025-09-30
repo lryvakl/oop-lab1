@@ -1,4 +1,4 @@
-package flowershop.model.color;
+package flowershop.color;
 
 public abstract class ColorTone {
     private final String name;

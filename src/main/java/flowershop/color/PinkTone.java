@@ -1,4 +1,4 @@
-package flowershop.model.color;
+package flowershop.color;
 
 public class PinkTone extends ColorTone {
     public PinkTone() {

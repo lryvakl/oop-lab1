@@ -1,4 +1,4 @@
-package flowershop.model.color;
+package flowershop.color;
 
 public class RedTone extends ColorTone {
     public RedTone() {
