@@ -1,6 +1,6 @@
 package flowershop.service;
-import flowershop.model.accessory.Accessory;
-import flowershop.model.flower.Flower;
+import flowershop.accessory.Accessory;
+import flowershop.flower.Flower;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
